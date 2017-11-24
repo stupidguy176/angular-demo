@@ -1,0 +1,9 @@
+<div class="container">
+  <div>
+      <h1>List User</h1>
+  </div>
+  <div class="d-flex flex-row-reverse">
+      <a [routerLink]="['/users/create']" class="btn btn-success btn-sm">Create User</a>
+  </div>
+  <app-user-table [users]="users" (delete)="onDeleteClick($event)"></app-user-table>
+</div>

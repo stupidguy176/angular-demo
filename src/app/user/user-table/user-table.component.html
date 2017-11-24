@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    <!-- <th scope="col">Create</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email + user.username}}</td>
+      <td>
+        <a [routerLink]="['/users', user.id]">
+            <button class="btn btn-info btn-sm">View </button>
+        </a>
+        <button (click)="onDeleteClick(user)"class="btn btn-danger btn-sm">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
