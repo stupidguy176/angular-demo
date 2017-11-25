@@ -269,10 +269,6 @@
       "id": 14
     },
     {
-      "isTrusted": true,
-      "id": 17
-    },
-    {
       "address": {
         "street": "l",
         "suite": "l",
@@ -292,10 +288,6 @@
       "website": "a",
       "phone": "a",
       "id": 18
-    },
-    {
-      "isTrusted": true,
-      "id": 19
     },
     {
       "address": {

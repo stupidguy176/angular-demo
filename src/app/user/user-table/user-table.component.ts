@@ -11,11 +11,11 @@ import { User } from '../models/user.model';
 export class UserTableComponent {
 
      @Input() users: Array<User>;
-  // @Output() delete = new EventEmitter();
+    @Output() delete = new EventEmitter();
 
-  // onDeleteClick(user) {
-  //   this.delete.emit(user);
-  // }
+    onDeleteClick(user) {
+      this.delete.emit(user);
+    }
 
   constructor() { }
 
