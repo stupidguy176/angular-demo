@@ -6,7 +6,7 @@ import { User } from '../models/user.model';
 
 @Injectable()
 export class UserService {
-  userApiUrl = 'http://localhost:3000';
+  userApiUrl = 'http://localhost:3000';hoi
 
   constructor(private http: HttpClient) { }
 
