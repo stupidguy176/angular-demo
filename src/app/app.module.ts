@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ListUserPageComponent } from './user/list-user-page/list-user-page.component';
-import { UserService } from './services/user.service';
+import { UserService } from './user/services/user.service';
 import { UserTableComponent } from './user/user-table/user-table.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { CreateUserPageComponent } from './user/create-user-page/create-user-page.component';
