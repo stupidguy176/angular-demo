@@ -22,7 +22,7 @@ export class ListUserPageComponent {
   }
 
   onDeleteClick(user: User) {
-    if (confirm('may muon xoa user: ' + user.name + '?')) {
+    if (confirm('ban muon xoa user: ' + user.name + '?')) {
       this.userService.deleteId(user.id).subscribe(() => {
         this.getUsers();
       });
