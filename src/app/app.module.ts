@@ -14,8 +14,6 @@ import { CreateUserPageComponent } from './user/create-user-page/create-user-pag
 import { EditUserPageComponent } from './user/edit-user-page/edit-user-page.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 
-
-
 const routes: Routes = [
   {
     path: '',
