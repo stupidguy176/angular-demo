@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { User } from '../models/user.model';
+import { User } from '../../models/user.model';
 
 
 @Component({
   selector: 'app-user-table',
   templateUrl: './user-table.component.html',
-  styleUrls: ['./user-table.component.css']
+  styleUrls: ['./user-table.component.scss']
 })
 export class UserTableComponent {
 
