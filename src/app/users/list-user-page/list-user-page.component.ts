@@ -6,7 +6,7 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-list-user-page',
   templateUrl: './list-user-page.component.html',
-  styleUrls: ['./list-user-page.component.css']
+  styleUrls: ['./list-user-page.component.scss']
 })
 export class ListUserPageComponent {
 

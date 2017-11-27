@@ -1,12 +1,11 @@
 <table class="table">
-  <thead class="thead-dark">
-    <tr>
+  <thead>
+    <tr class="color">
       <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">User Name</th>
       <th scope="col">Email</th>
-      <th scope="col">Actions</th>
-    <!-- <th scope="col">Create</th> -->
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -17,9 +16,11 @@
       <td>{{user.email + user.username}}</td>
       <td>
         <a [routerLink]="['/users', user.id]">
-            <button class="btn btn-info btn-sm">View </button>
+          <button class="btn btn-info btn-sm">
+            <i class="fa fa-id-card-o"></i>
+          </button>
         </a>
-        <button (click)="onDeleteClick(user)"class="btn btn-danger btn-sm">
+        <button (click)="onDeleteClick(user)" class="btn btn-danger btn-sm">
           <i class="fa fa-trash"></i>
         </button>
       </td>

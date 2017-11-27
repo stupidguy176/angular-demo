@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent {
 
@@ -27,7 +28,7 @@ export class UserDetailComponent {
   }
 
   onDeleteClick(user: User) {
-    if (confirm('may muon xoa user: ' + user.name + '?')) {
+    if (confirm('ban muon xoa user: ' + user.name + '?')) {
       this.userService.deleteId(user.id).subscribe(() => {
         this.router.navigate(['/users']);
       });

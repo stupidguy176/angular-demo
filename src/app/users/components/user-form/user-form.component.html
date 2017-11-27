@@ -1,67 +1,163 @@
-<form novalidate (ngSubmit)="onSubmit()">
+<form novalidate #f="ngForm" (submit)="onSubmit()">
   <div class="row">
     <div class="form-group col-md-6 col-sm-6">
       <label>Name</label>
-      <input type="text" name="name" class="form-control"  [(ngModel)]="user.name">
+      <input type="text" placeholder="Name" name="name" class="form-control" [(ngModel)]="user.name" required #name="ngModel" [ngClass]="{
+'is-invalid': name.invalid && (name.dirty || name.touched),
+'is-valid': name.valid && (name.dirty || name.touched)
+}">
+      <div class="invalid-feedback" *ngIf="name.errors && (name.dirty || name.touched)">
+        <p *ngIf="name.errors.required">UserName is required</p>
+      </div>
     </div>
     <div class="form-group col-md-6 col-sm-6">
       <label>UserName</label>
-      <input type="text" name="username" class="form-control" [(ngModel)]="user.username">
+      <input type="text" placeholder="Username" name="username" class="form-control" [(ngModel)]="user.username" required #username="ngModel"
+        [ngClass]="{
+'is-invalid': username.invalid && (username.dirty || username.touched),
+'is-valid': username.valid && (username.dirty || username.touched)
+}">
+      <div class="invalid-feedback" *ngIf="username.errors && (username.dirty || username.touched)">
+        <p *ngIf="username.errors.required">UserName is required</p>
+      </div>
     </div>
     <div class="form-group col-md-3">
       <label>Email</label>
-      <input type="text" name="email" class="form-control" [(ngModel)]="user.email">
+      <input type="text" placeholder="Email" name="email" class="form-control" [(ngModel)]="user.email" required pattern="[^ @]*@[^ @]*"
+        #email="ngModel" [ngClass]="{
+'is-invalid': email.invalid && (email.dirty || email.touched),
+'is-valid': email.valid && (email.dirty || email.touched)
+}">
+      <div class="invalid-feedback" *ngIf="email.errors && (email.dirty || email.touched)">
+        <p *ngIf="email.errors.required">Email is required</p>
+      </div>
     </div>
     <div class="form-group col-md-3">
       <label>Website</label>
-      <input type="text" name="website" class="form-control" [(ngModel)]="user.website">
+      <input type="text" placeholder="Website" name="website" class="form-control" [(ngModel)]="user.website" required #website="ngModel"
+        [ngClass]="{
+    'is-invalid': website.invalid && (website.dirty || website.touched),
+    'is-valid': website.valid && (website.dirty || website.touched)
+    }">
+      <div class="invalid-feedback" *ngIf="website.errors && (website.dirty || website.touched)">
+        <p *ngIf="website.errors.required">Website is required</p>
+      </div>
     </div>
     <div class="form-group col-md-6">
       <label>Phone</label>
-      <input type="text" name="phone" class="form-control" [(ngModel)]="user.phone">
+      <input type="text" placeholder="Phone" name="phone" class="form-control" [(ngModel)]="user.phone" required minlength="10"
+        #phone="ngModel" [ngClass]="{
+    'is-invalid': phone.invalid && (phone.dirty || phone.touched),
+    'is-valid': phone.valid && (phone.dirty || phone.touched)
+    }">
+      <div class="invalid-feedback" *ngIf="phone.errors && (phone.dirty || phone.touched)">
+        <p *ngIf="phone.errors.required">Phone is required</p>
+      </div>
     </div>
     <div class="form-group col-md-6">
       <label>Street</label>
-      <input type="text" name="street" class="form-control" [(ngModel)]="user.address.street">
+      <input type="text" placeholder="Street" name="street" class="form-control" [(ngModel)]="user.address.street" required #street="ngModel"
+        [ngClass]="{
+    'is-invalid': street.invalid && (street.dirty || street.touched),
+    'is-valid': street.valid && (street.dirty || street.touched)
+    }">
+      <div class="invalid-feedback" *ngIf="street.errors && (street.dirty || street.touched)">
+        <p *ngIf="street.errors.required">Street is required</p>
+      </div>
     </div>
     <div class="form-group col-md-6">
       <label>Suite</label>
-      <input type="text" name="suite" class="form-control" [(ngModel)]="user.address.suite">
+      <input type="text" placeholder="Suite" name="suite" class="form-control" [(ngModel)]="user.address.suite" required #suite="ngModel"
+        [ngClass]="{
+    'is-invalid': suite.invalid && (suite.dirty || suite.touched),
+    'is-valid': suite.valid && (suite.dirty || suite.touched)
+    }">
+      <div class="invalid-feedback" *ngIf="suite.errors && (suite.dirty || suite.touched)">
+        <p *ngIf="suite.errors.required">Suite is required</p>
+      </div>
     </div>
     <div class="form-group col-md-3">
       <label>City</label>
-      <input type="text" name="city" class="form-control" [(ngModel)]="user.address.city">
+      <input type="text" placeholder="City" name="city" class="form-control" [(ngModel)]="user.address.city" required #city="ngModel"
+        [ngClass]="{
+        'is-invalid': city.invalid && (city.dirty || city.touched),
+        'is-valid': city.valid && (city.dirty || city.touched)
+        }">
+      <div class="invalid-feedback" *ngIf="city.errors && (city.dirty || city.touched)">
+        <p *ngIf="city.errors.required">City is required</p>
+      </div>
     </div>
     <div class="form-group col-md-3">
       <label>Zipcode</label>
-      <input type="text" name="zipcode" class="form-control" [(ngModel)]="user.address.zipcode">
+      <input type="text" placeholder="Zipcode" name="zipcode" class="form-control" [(ngModel)]="user.address.zipcode" required
+        #zipcode="ngModel" [ngClass]="{
+        'is-invalid': zipcode.invalid && (zipcode.dirty || zipcode.touched),
+        'is-valid': zipcode.valid && (zipcode.dirty || zipcode.touched)
+        }">
+      <div class="invalid-feedback" *ngIf="zipcode.errors && (zipcode.dirty || zipcode.touched)">
+        <p *ngIf="zipcode.errors.required">Zipcode is required</p>
+      </div>
     </div>
     <div class="form-group col-md-3">
       <label>Geo lat</label>
-      <input type="text" name="lat" class="form-control" [(ngModel)]="user.address.lat">
+      <input type="text" placeholder="Lat" name="lat" class="form-control" [(ngModel)]="user.address.geo.lat" required #lat="ngModel"
+        [ngClass]="{
+        'is-invalid': lat.invalid && (lat.dirty || lat.touched),
+        'is-valid': lat.valid && (lat.dirty || lat.touched)
+        }">
+      <div class="invalid-feedback" *ngIf="lat.errors && (lat.dirty || lat.touched)">
+        <p *ngIf="lat.errors.required">Lat is required</p>
+      </div>
     </div>
     <div class="form-group col-md-3">
       <label>Geo lng</label>
-      <input type="text" name="lun" class="form-control" [(ngModel)]="user.address.lng">
+      <input type="text" placeholder="Lng" name="lng" class="form-control" [(ngModel)]="user.address.geo.lng" required #lng="ngModel"
+        [ngClass]="{
+        'is-invalid': lng.invalid && (lng.dirty || lng.touched),
+        'is-valid': lng.valid && (lng.dirty || lng.touched)
+        }">
+      <div class="invalid-feedback" *ngIf="lng.errors && (lng.dirty || lng.touched)">
+        <p *ngIf="lng.errors.required">Lng is required</p>
+      </div>
     </div>
     <div class="form-group col-md-6">
       <label>Company name</label>
-      <input type="text" name="companyName" class="form-control" [(ngModel)]="user.company.name">
+      <input type="text" placeholder="Company Name" name="companyName" class="form-control" [(ngModel)]="user.company.name" required
+        #companyName="ngModel" [ngClass]="{
+        'is-invalid': companyName.invalid && (companyName.dirty || companyName.touched),
+        'is-valid': companyName.valid && (companyName.dirty || companyName.touched)
+        }">
+      <div class="invalid-feedback" *ngIf="companyName.errors && (companyName.dirty || companyName.touched)">
+        <p *ngIf="companyName.errors.required">Company Name is required</p>
+      </div>
     </div>
     <div class="form-group col-md-3">
       <label>Company catchPhrase</label>
-      <input type="text" name="catchPhrase" class="form-control" [(ngModel)]="user.company.catchPhrase">
+      <input type="text" placeholder="Company catchPhrase" name="catchPhrase" class="form-control" [(ngModel)]="user.company.catchPhrase"
+        required #catchPhrase="ngModel" [ngClass]="{
+        'is-invalid': catchPhrase.invalid && (catchPhrase.dirty || catchPhrase.touched),
+        'is-valid': catchPhrase.valid && (catchPhrase.dirty || catchPhrase.touched)
+        }">
+      <div class="invalid-feedback" *ngIf="catchPhrase.errors && (catchPhrase.dirty || catchPhrase.touched)">
+        <p *ngIf="catchPhrase.errors.required">Catch Phrase is required</p>
+      </div>
     </div>
     <div class="form-group col-md-3">
       <label>Company bs</label>
-      <input type="text" name="bs" class="form-control" [(ngModel)]="user.company.bs">
+      <input type="text" placeholder="Bs" name="bs" class="form-control" [(ngModel)]="user.company.bs" required #bs="ngModel" [ngClass]="{
+        'is-invalid': bs.invalid && (bs.dirty || bs.touched),
+        'is-valid': bs.valid && (bs.dirty || bs.touched)
+        }">
+      <div class="invalid-feedback" *ngIf="bs.errors && (bs.dirty || bs.touched)">
+        <p *ngIf="bs.errors.required">Bs is required</p>
+      </div>
     </div>
   </div>
   <br/>
-  <div>
-    <button type="submit" class="btn btn-primary">
+  <div style="padding-bottom:7%">
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
       Save
     </button>
   </div>
-  <div *ngIf="error">error</div>
+  <div *ngIf="error">error...error...:D</div>
 </form>

@@ -7,7 +7,7 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-create-user-page',
   templateUrl: './create-user-page.component.html',
-  styleUrls: ['./create-user-page.component.css']
+  styleUrls: ['./create-user-page.component.scss']
 })
 export class CreateUserPageComponent {
 

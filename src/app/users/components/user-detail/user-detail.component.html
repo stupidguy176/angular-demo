@@ -1,49 +1,71 @@
-<div class="container">
-  <div class="row" id="user-detail" *ngIf="user">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{user.name}}</h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class=" col-md-9 col-lg-9 ">
-              <table class="table table-user-information">
-                <tbody>
-                  <tr>
-                    <td>Id:</td>
-                    <td>{{user.id}}</td>
-                  </tr>
-                  <tr>
-                    <td>User Name:</td>
-                    <td>{{user.username}}</td>
-                  </tr>
-                  <tr>
-                    <td>Email</td>
-                    <td>{{user.email}}</td>
-                  </tr>
-
-                  <tr>
-                    <tr>
-                      <td>Gender</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>Home Address</td>
-                      <td></td>
-                    </tr>
-
-
-                </tbody>
-              </table>
-
-              <a   [routerLink]="['/users', user.id,'edit']" class="btn btn-primary btn-md" >Edit</a>
-              <button class="btn btn-primary btn-md" (click)="onDeleteClick(user)">Delete </button>
-            </div>
+<div *ngIf="user">
+  <div>
+    <img src="./assets/images/banner1.jpg" style="height:200px; width:100%">
+    <div class="container user-avatar-container">
+      <img class="user-avatar" src="{{user.image}}">
+      <h5 class="user-name">{{user.name}}</h5>
+    </div>
+  </div>
+  <div class="container image">
+    <div *ngIf="user">
+      <div class="row">
+        <div class=" col-md-6">
+          <div class="c-card u-p-medium u-text-small u-mb-small">
+            <h6 class="u-text-bold">General Info</h6>
+            <dl class="u-flex u-pv-small u-border-bottom">
+              <dt class="u-width-25">Name </dt>
+              <dd>{{user.name}}</dd>
+            </dl>
+            <dl class="u-flex u-pv-small u-border-bottom">
+              <dt class="u-width-25">User name </dt>
+              <dd>{{user.username}}</dd>
+            </dl>
+            <dl class="u-flex u-pv-small u-border-bottom">
+              <dt class="u-width-25">Phone</dt>
+              <dd>{{user.phone}}</dd>
+            </dl>
+            <dl class="u-flex u-pv-small u-border-bottom">
+              <dt class="u-width-25">Geo</dt>
+              <dd>{{"lat: "+user.address.geo.lat +" lng: "+ user.address.geo.lng}}</dd>
+            </dl>
+            <dl class="u-flex u-pv-small">
+              <dt class="u-width-25">Country</dt>
+              <dd>{{user.address.street+", " + user.address.suite+", " + user.address.city}}</dd>
+            </dl>
           </div>
         </div>
-
+        <div class=" col-md-6">
+          <div class="c-card u-p-medium u-text-small u-mb-small">
+            <h6 class="u-text-bold">Company</h6>
+            <dl class="u-flex u-pv-small u-border-bottom">
+              <dt class="u-width-25">Website</dt>
+              <dd>{{user.website}}</dd>
+            </dl>
+            <dl class="u-flex u-pv-small u-border-bottom">
+              <dt class="u-width-25">Email</dt>
+              <dd>{{user.email}}</dd>
+            </dl>
+            <dl class="u-flex u-pv-small u-border-bottom">
+              <dt class="u-width-25">Name</dt>
+              <dd>{{user.company.name}}</dd>
+            </dl>
+            <dl class="u-flex u-pv-small u-border-bottom">
+              <dt class="u-width-25">Catch Pharse</dt>
+              <dd>{{user.company.catchPhrase}}</dd>
+            </dl>
+            <dl class="u-flex u-pv-small">
+              <dt class="u-width-25">BS</dt>
+              <dd>{{user.company.bs}}</dd>
+            </dl>
+          </div>
+        </div>
       </div>
     </div>
+    <br>
+    <a [routerLink]="['/users',user.id,'edit']" class="btn btn-primary btn-md">Edit</a>
+    <button (click)="onDeleteClick(user)" class="btn btn-danger btn-md" data-ng-click="onDelete()">
+      <i class="fa fa-trash">     
+      </i>
+    </button>
   </div>
 </div>
